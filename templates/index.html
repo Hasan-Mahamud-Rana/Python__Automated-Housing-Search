@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Collector App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/css/foundation.min.css') }}" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}" />
+</head>
+
+<body>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x align-center-middle">
+      <div class="cell small-11 medium-8">
+        <form action="{{url_for('result')}}" method="POST">
+          <div class="grid-container">
+            <div class="grid-x grid-padding-x">
+              <div class="small-12 cell">
+                <label>User information</label>
+                <div class="grid-x grid-padding-x">
+                  <div class="small-12 medium-4 cell">
+                    <input type="text" placeholder="Name" name="name" required>
+                  </div>
+                  <div class="small-12 medium-4 cell">
+                    <input type="email" placeholder="E-mail" name="email" required>
+                  </div>
+                  <div class="small-12 medium-4 cell">
+                    <input type="text" placeholder="Phone" name="phone" required>
+                  </div>
+                </div>
+              </div>
+              <div class="small-12 cell">
+                <label>Location</label>
+                <div class="grid-x grid-padding-x">
+                  <div class="small-12 medium-4 cell">
+                    <input type="text" placeholder="Street" name="street" required>
+                  </div>
+                  <div class="small-12 medium-4 cell">
+                    <input type="text" placeholder="Town" name="town" required>
+                  </div>
+                  <div class="small-12 medium-4 cell">
+                    <input type="text" placeholder="Province" name="province" required>
+                  </div>
+                </div>
+              </div>
+              <div class="small-12 medium-6 cell">
+                <label>Rent range
+                  <input name="range-min" placeholder="min" type="number">
+                  <input name="range-max" placeholder="max" type="number">
+                </label>
+              </div>
+
+              <div class="small-12 medium-6 cell">
+                <fieldset class="large-5 cell">
+                  <legend>Lease Type</legend>
+                  <input type="radio" name="leasetype" value="short-term" id="leasetypeShortterm" required><label
+                    for="leasetypeShortterm">Short term</label>
+                  <input type="radio" name="leasetype" value="long-term" id="leasetypeLongterm"><label
+                    for="leasetypeLongterm">Long term</label>
+                </fieldset>
+              </div>
+              <div class="small-12 cell">
+                <fieldset class="large-5 cell">
+                  <legend>Type of property</legend>
+                  <input type="radio" name="property" value="house" id="propertyHouse" required><label
+                    for="propertyHouse">House</label>
+                  <input type="radio" name="property" value="apartment" id="propertyApartment"><label
+                    for="propertyApartment">Apartment</label>
+                  <input type="radio" name="property" value="room" id="propertyRoom"><label
+                    for="propertyRoom">Room</label>
+                  <input type="radio" name="property" value="condo" id="propertyCondo"><label
+                    for="propertyCondo">Condo</label>
+                  <input type="radio" name="property" value="basement" id="propertyBasement"><label
+                    for="propertyBasement">Basement</label>
+                </fieldset>
+              </div>
+              <div class="small-12 cell">
+                <h4>Sources</h4>
+                <div class="grid-x grid-padding-x">
+                  <div class="small-12 medium-4 cell">
+                    <span>Kijiji</span>
+                    <div class="switch tiny">
+                      <input class="switch-input" id="s-kijiji" type="checkbox" name="s-source[0]" value="1" checked>
+                      <label class="switch-paddle" for="s-kijiji">
+                        <span class="show-for-sr"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="small-12 medium-4 cell">
+                    <span>Craig</span>
+                    <div class="switch tiny">
+                      <input class="switch-input" id="s-source-1" type="checkbox" name="s-source[1]" value="1">
+                      <label class="switch-paddle" for="s-source-1">
+                        <span class="show-for-sr"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="small-12 medium-4 cell">
+                    <span>Source 3</span>
+                    <div class="switch tiny">
+                      <input class="switch-input" id="s-source-2" type="checkbox" name="s-source[2]" value="1">
+                      <label class="switch-paddle" for="s-source-2">
+                        <span class="show-for-sr"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="small-12 cell">
+              <input type="submit" class="button" value="Search">
+            </div>
+          </div>
+      </div>
+      </form>
+    </div>
+
+  </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='library/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/js/foundation.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+
+</html>
